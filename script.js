@@ -1,3 +1,7 @@
+// PACKING LIST ELEMENTS
+const packingSection = document.getElementById("packing-section");
+const generatePackingBtn = document.getElementById("generatePackingBtn");
+const packingOutput = document.getElementById("packing-output");
 // ---------------------------
 // API KEY (replace with your own)
 // ---------------------------
