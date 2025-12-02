@@ -1,3 +1,27 @@
+const SPREADSHEET_ID = "1v4ByekCi0_qduYlmNCxMD1wljTsWIOHV4dB40Hb_Tsc";
+const SHEET_GID = "0"; // this stays 0 unless you use another sheet tab
+
+async function fetchCloset() {
+  const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&gid=${SHEET_GID}`;
+  const res = await fetch(url);
+  const text = await res.text();
+
+  // remove the weird wrapper Google adds
+  const json = JSON.parse(text.substring(text.indexOf('{'), text.lastIndexOf('}')+1));
+
+  const cols = json.table.cols.map(c => c.label);
+  const rows = json.table.rows;
+
+  const items = rows.map(r => {
+    const obj = {};
+    r.c.forEach((cell, idx) => {
+      obj[cols[idx]] = cell ? cell.v : "";
+    });
+    return obj;
+  });
+
+  return items;
+}
 // -------------------------------------------------------
 // API KEY (replace with your own OpenWeather API key)
 // -------------------------------------------------------
