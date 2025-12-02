@@ -3,43 +3,64 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Outfit Generator</title>
-
-    <!-- Link to CSS -->
+    <title>My Daily Outfit</title>
     <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
     <header>
         <h1>My Daily Outfit Generator</h1>
-        <p>Automatically picks your outfit based on the weather + your wardrobe.</p>
     </header>
 
-    <section id="weather-section">
-        <h2>Today's Weather</h2>
-        <button id="getWeatherBtn">Get Weather</button>
-        <div id="weatherResult"></div>
-    </section>
+    <main>
+        <!-- Weather + Mode Selector -->
+        <section id="weather-section">
 
-    <section id="outfit-section">
-        <h2>Your Outfit</h2>
-        <button id="generateOutfitBtn">Generate Outfit</button>
-        <div id="outfitResult"></div>
-    </section>
+            <div class="mode-toggle">
+                <label>
+                    <input type="checkbox" id="vacationModeToggle">
+                    Vacation Mode
+                </label>
+            </div>
 
-    <section id="instagram-section">
-        <h2>Create Instagram Post</h2>
-        <button id="createPostBtn">Create Post Image</button>
-        <canvas id="postCanvas" width="1080" height="1350" style="display:none;"></canvas>
-        <div id="postOutput"></div>
-    </section>
+            <!-- Current Location Weather -->
+            <div id="current-location-weather" class="mode-block">
+                <h2>Today's Weather</h2>
+                <button id="getWeatherBtn">Get Weather</button>
+                <p id="weather-output"></p>
+            </div>
+
+            <!-- Vacation Mode -->
+            <div id="vacation-weather" class="mode-block hidden">
+                <h2>Vacation Weather</h2>
+
+                <label for="vacationLocation">Destination</label>
+                <input type="text" id="vacationLocation" placeholder="Ex: Paris, France">
+
+                <label for="vacationStart">Start Date</label>
+                <input type="date" id="vacationStart">
+
+                <label for="vacationEnd">End Date</label>
+                <input type="date" id="vacationEnd">
+
+                <button id="getVacationWeatherBtn">Get Vacation Weather</button>
+                <p id="vacation-weather-output"></p>
+            </div>
+        </section>
+
+        <!-- Outfit Generator -->
+        <section id="outfit-section">
+            <h2>Your Outfit</h2>
+            <button id="generateOutfitBtn">Generate Outfit</button>
+            <div id="outfit-output"></div>
+        </section>
+
+    </main>
 
     <footer>
-        <p>Made with ❤️ using Google Sheets + GitHub Pages + JavaScript</p>
+        <p>© 2025 My Daily Outfit App</p>
     </footer>
 
-    <!-- Link to JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
