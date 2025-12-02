@@ -637,3 +637,31 @@ createIGBtn.addEventListener("click", async () => {
     igOutput.textContent = "Could not export image. This often happens when one or more images block cross-origin access. Try hosting your images on a CORS-friendly host (imgur, your server) or enable public sharing on Google Drive with direct image URLs.";
   }
 });
+getVacationWeatherBtn.addEventListener("click", async () => {
+    const location = document.getElementById("vacationLocation").value.trim();
+
+    if (!location) {
+        vacationWeatherResult.textContent = "Please enter a location.";
+        return;
+    }
+
+    try {
+        vacationWeatherResult.textContent = "Loading...";
+
+        const weather = await fetchVacationWeather(location);
+
+        if (!weather) {
+            vacationWeatherResult.textContent = "Unable to get weather. Check your spelling.";
+            return;
+        }
+
+        const temp = weather.main?.temp;
+        const condition = weather.weather?.[0]?.main;
+
+        vacationWeatherResult.textContent =
+            `Weather in ${location}: ${temp}°F, ${condition}`;
+    } catch (error) {
+        vacationWeatherResult.textContent = "Error fetching vacation weather.";
+        console.error(error);
+    }
+});
