@@ -1,7 +1,7 @@
 /* CONFIG - update if needed */
 const SPREADSHEET_ID = "1v4ByekCi0_qduYlmNCxMD1wljTsWIOHV4dB40Hb_Tsc";
 const SHEET_GID = "0"; // first tab
-const 314b8f4d1cc944b997be7d1aeca67c5f = ""; // <-- paste your OpenWeather API key here (optional but recommended)
+const API_KEY = "314b8f4d1cc944b997be7d1aeca67c5f"; // <-- paste your OpenWeather API key here (optional but recommended)
 
 /* DOM shortcuts */
 const vacationToggle = document.getElementById("vacationModeToggle");
