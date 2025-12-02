@@ -1,74 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Daily Outfit</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Outfit & IG Post Generator</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <h1>Outfit & IG Post Generator</h1>
+    <p>Uses your Google Sheet wardrobe + weather to suggest outfits and create an Instagram-ready image.</p>
+  </header>
 
-    <header>
-        <h1>My Daily Outfit Generator</h1>
-    </header>
+  <main>
+    <section class="controls">
+      <label><input type="checkbox" id="vacationModeToggle" /> Vacation Mode</label>
+    </section>
 
-    <main>
-        <!-- Weather + Mode Selector -->
-        <section id="weather-section">
+    <section id="current-block" class="mode-block">
+      <h2>Current Location Weather</h2>
+      <div class="row">
+        <button id="getWeatherBtn">Get Local Weather</button>
+      </div>
+      <div id="weather-output" class="output"></div>
+    </section>
 
-            <div class="mode-toggle">
-                <label>
-                    <input type="checkbox" id="vacationModeToggle">
-                    Vacation Mode
-                </label>
-            </div>
+    <section id="vacation-block" class="mode-block hidden">
+      <h2>Vacation Planner</h2>
+      <label>Destination (city, country)</label>
+      <input id="vacationLocation" placeholder="e.g. Paris, France" />
+      <label>Start date</label>
+      <input id="vacationStart" type="date" />
+      <label>End date</label>
+      <input id="vacationEnd" type="date" />
+      <div class="row">
+        <button id="getVacationWeatherBtn">Load Trip Forecast</button>
+        <button id="generatePackingBtn">Generate Packing List</button>
+      </div>
+      <div id="vacation-weather-output" class="output"></div>
+      <div id="packing-output" class="output"></div>
+    </section>
 
-            <!-- Current Location Weather -->
-            <div id="current-location-weather" class="mode-block">
-                <h2>Today's Weather</h2>
-                <button id="getWeatherBtn">Get Weather</button>
-                <p id="weather-output"></p>
-            </div>
+    <section id="outfit-section" class="mode-block">
+      <h2>Suggested Outfit</h2>
+      <div class="row">
+        <button id="generateOutfitBtn">Suggest Outfit</button>
+        <select id="occasionSelect">
+          <option value="">Any occasion</option>
+          <option value="Dressy/Sunday">Dressy/Sunday</option>
+          <option value="Workday">Workday</option>
+          <option value="casual">casual</option>
+          <option value="loungewear">loungewear</option>
+        </select>
+        <button id="createIGBtn">Create IG Post Image</button>
+      </div>
+      <div id="outfit-output" class="output"></div>
+      <div id="ig-output" class="output"></div>
+    </section>
 
-            <!-- Vacation Mode -->
-            <div id="vacation-weather" class="mode-block hidden">
-                <h2>Vacation Weather</h2>
+    <section id="daily-tabs-section" class="mode-block hidden">
+      <h2>Daily Suggestions (Vacation)</h2>
+      <div id="tabs"></div>
+      <div id="tab-content" class="output"></div>
+    </section>
 
-                <label for="vacationLocation">Destination</label>
-                <input type="text" id="vacationLocation" placeholder="Ex: Paris, France">
+    <!-- Hidden canvas for generating IG image -->
+    <canvas id="igCanvas" width="1080" height="1350" style="display:none;"></canvas>
 
-                <label for="vacationStart">Start Date</label>
-                <input type="date" id="vacationStart">
+  </main>
 
-                <label for="vacationEnd">End Date</label>
-                <input type="date" id="vacationEnd">
+  <footer>
+    <small>Make sure your Google Sheet is set to “Anyone with the link can view.” Images must be public/CORS-friendly for canvas export.</small>
+  </footer>
 
-                <button id="getVacationWeatherBtn">Get Vacation Weather</button>
-                <p id="vacation-weather-output"></p>
-            </div>
-        </section>
-
-        <!-- Outfit Generator -->
-        <section id="outfit-section">
-            <h2>Your Outfit</h2>
-            <button id="generateOutfitBtn">Generate Outfit</button>
-            <div id="outfit-output"></div>
-        </section>
-        <!-- Packing List Section -->
-<section id="packing-section" class="hidden">
-    <h2>Vacation Packing List</h2>
-    <button id="generatePackingBtn">Generate Packing List</button>
-
-    <div id="packing-output"></div>
-</section>
-
-
-    </main>
-
-    <footer>
-        <p>© 2025 My Daily Outfit App</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
