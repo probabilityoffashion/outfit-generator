@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Outfit Generator</title>
+
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <header>
+        <h1>My Daily Outfit Generator</h1>
+        <p>Automatically picks your outfit based on the weather + your wardrobe.</p>
+    </header>
+
+    <section id="weather-section">
+        <h2>Today's Weather</h2>
+        <button id="getWeatherBtn">Get Weather</button>
+        <div id="weatherResult"></div>
+    </section>
+
+    <section id="outfit-section">
+        <h2>Your Outfit</h2>
+        <button id="generateOutfitBtn">Generate Outfit</button>
+        <div id="outfitResult"></div>
+    </section>
+
+    <section id="instagram-section">
+        <h2>Create Instagram Post</h2>
+        <button id="createPostBtn">Create Post Image</button>
+        <canvas id="postCanvas" width="1080" height="1350" style="display:none;"></canvas>
+        <div id="postOutput"></div>
+    </section>
+
+    <footer>
+        <p>Made with ❤️ using Google Sheets + GitHub Pages + JavaScript</p>
+    </footer>
+
+    <!-- Link to JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
