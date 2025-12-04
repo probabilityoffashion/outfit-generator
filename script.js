@@ -4,7 +4,7 @@
 // =======================
 
 /* ========== CONFIG ========== */
-const OPENWEATHER_API_KEY = "314b8f4d1cc944b997be7d1aeca67c5f"; // <-- paste your OpenWeather API key here
+const OPENWEATHER_API_KEY = ""; // 314b8f4d1cc944b997be7d1aeca67c5f<-- paste your OpenWeather API key here
 const SPREADSHEET_ID = "1v4ByekCi0_qduYlmNCxMD1wljTsWIOHV4dB40Hb_Tsc";
 const SHEET_GID = "0"; // first tab
 const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&gid=${SHEET_GID}`;
